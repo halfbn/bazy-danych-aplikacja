@@ -1,3 +1,31 @@
+Zignorujcie proszę te pliki/folder co są w tym projekcie. Powinny być generowane lokalnie, u każdego osobno ale nie udało mi się ich nie dodać.
+ # Ignoruj różne warianty środowisk wirtualnych
+venv/
+VENV/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Ignoruj pliki i foldery tymczasowe Pythona
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignoruj pliki systemowe i edytorów
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Ignoruj statyczne pliki generowane przez Django
+backend/staticfiles/
+
+Ponadto tak wygląda nasza baza danych rn: https://dbdiagram.io/d/6807b1411ca52373f5e90dd8
+
+
 # Instrukcja uruchomienia projektu Django
 
 ## 1. Wymagania wstępne
