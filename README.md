@@ -1,4 +1,7 @@
-Zignorujcie proszę te pliki/folder co są w tym projekcie. Powinny być generowane lokalnie, u każdego osobno ale nie udało mi się ich nie dodać.
+Zignorujcie proszę te poniższe pliki/foldery co są w tym projekcie. Powinny być generowane lokalnie, u każdego osobno ale nie udało mi się ich nie dodać.
+
+Jakby się to udało odpalić jakoś to w widok tabel -> Przywróć bazę danych uruchamia skrypt który wgrywa początkowe przykłądowe dane do bazy (backend/people/management/commands/initdata.py). 
+
  # Ignoruj różne warianty środowisk wirtualnych
 venv/
 VENV/
