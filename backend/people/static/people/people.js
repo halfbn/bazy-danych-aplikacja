@@ -728,7 +728,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderReservationsTable();
     }
 
-    function renderReservationsTable() {
+        function renderReservationsTable() {
         const tablePanel = document.getElementById('reservations-table-panel');
         if (!tablePanel) return;
         tablePanel.innerHTML = '<p>Ładowanie rezerwacji...</p>';
@@ -737,7 +737,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 const reservations = data.reservations || [];
                 let html = `
-                
+                <div class="overflow-x-auto">
                  <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow">
                   <thead class="bg-gray-100">
                     <tr>
@@ -760,7 +760,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td class="px-4 py-2 border-b">${r.EndHour}</td>
                     </tr>`;
                 }
-                html += '</tbody></table>';
+                html += '</tbody></table></div>';
                 tablePanel.innerHTML = html;
             })
             .catch(err => {
