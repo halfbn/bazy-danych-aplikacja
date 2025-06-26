@@ -79,14 +79,7 @@ pip install django mysqlclient
 mysql -u root -p
 ```
 
-3. Utwórz bazę danych i użytkownika (przykład):
-
-```sql
-CREATE DATABASE moja_baza CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'moj_uzytkownik'@'localhost' IDENTIFIED BY 'moje_haslo';
-GRANT ALL PRIVILEGES ON moja_baza.* TO 'moj_uzytkownik'@'localhost';
-FLUSH PRIVILEGES;
-```
+3. Utwórz bazę odpowiednią bazę danych SQL Server - szczegóły w dokumentacji
 
 4. W pliku `backend/backend/settings.py` znajdź sekcję `DATABASES` i ustaw:
 
