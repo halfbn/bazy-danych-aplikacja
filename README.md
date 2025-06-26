@@ -34,7 +34,7 @@ Ponadto tak wygląda nasza baza danych rn: https://dbdiagram.io/d/6807b1411ca523
 ## 1. Wymagania wstępne
 
 - Python 3.12 (zalecana wersja zgodna z Twoim środowiskiem)
-- MySQL (np. MySQL Community Server)
+- SQL Server (np. SQL Server Express)
 - pip (menedżer pakietów Pythona)
 - W systemie Windows: Visual C++ Build Tools (do kompilacji niektórych zależności)
 
@@ -67,31 +67,42 @@ pip install -r requirements.txt
 Jeśli nie masz pliku `requirements.txt`, zainstaluj ręcznie:
 
 ```powershell
-pip install django mysqlclient
+pip install django mssql-django
 ```
 
-## 5. Konfiguracja bazy danych MySQL
+## 5. Konfiguracja bazy danych SQL Server
 
-1. Zainstaluj MySQL i uruchom serwer.
-2. Zaloguj się do MySQL:
+1. Zainstaluj SQL Server (np. SQL Server Express) i uruchom serwer.
+2. Zainstaluj sterownik ODBC dla SQL Server (np. ODBC Driver 17 for SQL Server).
+3. Zaloguj się do SQL Server (np. przez sqlcmd lub SSMS) i utwórz bazę oraz użytkownika (np. `sa` z hasłem `abc`).
+
+Przykład (w PowerShell, jeśli masz sqlcmd):
 
 ```powershell
-mysql -u root -p
+sqlcmd -S localhost -U sa -P abc
 ```
 
-3. Utwórz bazę odpowiednią bazę danych SQL Server - szczegóły w dokumentacji
+W konsoli SQL Server utwórz bazę (np. moja_baza):
+
+```sql
+CREATE DATABASE moja_baza;
+GO
+```
 
 4. W pliku `backend/backend/settings.py` znajdź sekcję `DATABASES` i ustaw:
 
 ```python
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mssql',
         'NAME': 'moja_baza',
-        'USER': 'moj_uzytkownik',
-        'PASSWORD': 'moje_haslo',
+        'USER': 'sa',
+        'PASSWORD': 'abc',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
     }
 }
 ```
